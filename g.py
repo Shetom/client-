@@ -1,4 +1,4 @@
-import os
+guimport os
 import telebot
 import json
 import requests
@@ -201,7 +201,7 @@ def process_attack_command(message):
             return
 
         asyncio.run_coroutine_threadsafe(run_attack_command_async(target_ip, target_port, duration), loop)
-        bot.send_message(message.chat.id, f"*CHUDAI DURU HO GAYI 💋\n\nHost: {target_ip}\nPort: {target_port}\nTime: {duration}*", parse_mode='Markdown')
+        bot.send_message(message.chat.id, f"*CHUDAI SURU HO GAYI 💋\n\nHost: {target_ip}\nPort: {target_port}\nTime: {duration}*", parse_mode='Markdown')
     except Exception as e:
         logging.error(f"Error in processing attack command: {e}")
 
