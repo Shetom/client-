@@ -101,7 +101,7 @@ def approve_or_disapprove_user(message):
     cmd_parts = message.text.split()
 
     if not is_admin:
-        bot.send_message(chat_id, "*You are not authorized to use this command*", parse_mode='Markdown')
+        bot.send_message(chat_id, "*TUM CHUDAI 💦 NHI KR SAKTE 😥. Please contact Owner. @YTABHIA2Z 🙏*", parse_mode='Markdown')
         return
 
     if len(cmd_parts) < 2:
@@ -148,7 +148,7 @@ def attack_command(message):
     try:
         user_data = users_collection.find_one({"user_id": user_id})
         if not user_data or user_data['plan'] == 0:
-            bot.send_message(chat_id, "You are not approved to use this bot. Please contact the administrator.")
+            bot.send_message(chat_id, "TUM CHUDAI 💦 NHI KR SAKTE 😥. Please contact Owner. @YTABHIA2Z 🙏.")
             return
 
         if user_data['plan'] == 1 and users_collection.count_documents({"plan": 1}) > 99:
@@ -192,7 +192,7 @@ def process_attack_command(message):
     try:
         args = message.text.split()
         if len(args) != 3:
-            bot.send_message(message.chat.id, "*Sahi se chudai 💦 karo. Please use: /Attack target_ip target_port time*", parse_mode='Markdown')
+            bot.send_message(message.chat.id, "*Sahi se chudai 💦 karo. Please use: /Chudai target_ip target_port time*", parse_mode='Markdown')
             return
         target_ip, target_port, duration = args[0], int(args[1]), args[2]
 
