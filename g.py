@@ -172,7 +172,7 @@ def attack_command(message):
     try:
         user_data = users_collection.find_one({"user_id": user_id})
         if not user_data or user_data['plan'] == 0:
-            bot.send_message(chat_id, "*You are not approved to use this bot. Please contact the administrator.*", parse_mode='Markdown')
+            bot.send_message(chat_id, "*TUM CHUDAI 💦 NHI KR SAKTE 😥. Please contact Owner. @YTABHIA2Z 🙏.*", parse_mode='Markdown')
             return
 
         if user_data['plan'] == 1 and users_collection.count_documents({"plan": 1}) > 99:
